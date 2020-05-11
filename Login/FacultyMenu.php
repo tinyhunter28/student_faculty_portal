@@ -5,10 +5,10 @@
 		$logo = "glyphicon glyphicon-user";
 		if($_SESSION['Category']!= 1)
 		{
-			$link = "profile.php";
+			$link = "FacultyProfile.php";
 		}
 		else {
-				$link = "../profileView.php";
+				$link = "../FacultyProfileView.php";
 		}
 	}
 	else
@@ -24,10 +24,10 @@
 				<h1><a href="index.php">Student Faculty Portal</a></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="../FacultyProfile.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="../Login/FacultyProfile.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 						<li><a href="../UploadBooks.php"><span class="glyphicon glyphicon-shopping-cart"> UploadBooks</a></li>
 						<li><a href="<?= $link; ?>"><span class="<?php echo $logo; ?>"></span><?php echo" ". $loginProfile; ?></a></li>
-						<li><a href="../UploadNotice.php"><span class="glyphicon glyphicon-grain"> Upload Notice</a></li>
+						<li><a href="../UploadNotice.php"><span class="glyphicon glyphicon-grain"> UploadNotice</a></li>
 						<li><a href="../Report.php"><span class="glyphicon glyphicon-comment"> Reports</a></li>
 					</ul>
 				</nav>

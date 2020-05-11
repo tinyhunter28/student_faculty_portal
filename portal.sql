@@ -86,17 +86,9 @@ ALTER TABLE `faculty`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `bid` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `bid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
   MODIFY `fid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
-
-
---
--- Constraints for table `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`bid`) REFERENCES `faculty` (`fid`);

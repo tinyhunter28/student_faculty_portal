@@ -47,14 +47,14 @@
 
 <div id="id01" class="modal">
 
-<form class="modal-content animate" action="Login/login.php" method='POST'>
+<form class="modal-content animate" action="Login/StudentLogin.php" method='POST'>
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container">
     <h3>Login</h3>
-							<form method="post" action="Login/login.php">
+							<form method="post" action="Login/StudentLogin.php">
 								<div class="row uniform 50%">
 									<div class="7u$">
 										<input type="text" name="uname" id="uname" value="" placeholder="UserName" style="width:80%" required/>
@@ -78,7 +78,7 @@
 <!--Student Signup-->
 
 <div id="id02" class="modal">
-<form class="modal-content animate" action="Login/signUp.php" method='POST'>
+<form class="modal-content animate" action="Login/StudentSignUp.php" method='POST'>
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
@@ -87,7 +87,7 @@
 
 <section>
 							<h3>SignUp</h3>
-							<form method="post" action="Login/signUp.php">
+							<form method="post" action="Login/StudentSignUp.php">
 								<center>
 								<div class="row uniform">
 									<div class="3u 12u$(xsmall)">
@@ -135,19 +135,6 @@
     </div>
 </form>
 </div>
-
-<script>
-function studentportal()
-{
-     location.href = "student.php";
-} 
-
-function facultyportal()
-{
-     location.href = "faculty.php";
-} 
-</script>
-
 
 </body>
 </html>
