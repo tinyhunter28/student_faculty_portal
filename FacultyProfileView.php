@@ -66,10 +66,6 @@
                             <b><font size="+1" color="black">Mobile No : </font></b>
                             <font size="+1"><?php echo $_SESSION['Mobile'];?></font>
                         </div>
-                        <div class="col-sm-3">
-                            <b><font size="+1" color="black">ADDRESS : </font></b>
-                            <font size="+1"><?php echo $_SESSION['Addr'];?></font>
-                        </div>
                         <div class="col-sm-3"></div>
                     </div>
                         <div class="12u$">

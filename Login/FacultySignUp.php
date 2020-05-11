@@ -9,18 +9,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$email = dataFilter($_POST['email']);
 	$pass =	dataFilter(password_hash($_POST['pass'], PASSWORD_BCRYPT));
 	$hash = dataFilter( md5( rand(0,1000) ) );
-	$category = dataFilter($_POST['category']);
-    $addr = dataFilter($_POST['addr']);
 
 	$_SESSION['Email'] = $email;
     $_SESSION['Name'] = $name;
     $_SESSION['Password'] = $pass;
     $_SESSION['Username'] = $user;
     $_SESSION['Mobile'] = $mobile;
-    $_SESSION['Category'] = $category;
     $_SESSION['Hash'] = $hash;
-    $_SESSION['Addr'] = $addr;
-    $_SESSION['Rating'] = 0;
 }
 
 
@@ -47,8 +42,8 @@ if($length != 10)
     }
     else
     {
-    	$sql = "INSERT INTO faculty (fname, fusername, fpassword, fhash, fmobile, femail, faddress)
-    			VALUES ('$name','$user','$pass','$hash','$mobile','$email','$addr')";
+    	$sql = "INSERT INTO faculty (fname, fusername, fpassword, fhash, fmobile, femail)
+    			VALUES ('$name','$user','$pass','$hash','$mobile','$email')";
 
     	if (mysqli_query($conn, $sql))
     	{

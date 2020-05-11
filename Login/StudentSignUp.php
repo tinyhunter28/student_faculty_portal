@@ -5,20 +5,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$name = dataFilter($_POST['name']);
 	$mobile = dataFilter($_POST['mobile']);
-	$user = dataFilter($_POST['uname']);
+	$roll = dataFilter($_POST['roll']);
 	$email = dataFilter($_POST['email']);
 	$pass =	dataFilter(password_hash($_POST['pass'], PASSWORD_BCRYPT));
 	$hash = dataFilter( md5( rand(0,1000) ) );
-    $addr = dataFilter($_POST['addr']);
+    $course = dataFilter($_POST['course']);
 
 	$_SESSION['Email'] = $email;
     $_SESSION['Name'] = $name;
     $_SESSION['Password'] = $pass;
-    $_SESSION['Username'] = $user;
+    $_SESSION['Roll No.'] = $roll;
     $_SESSION['Mobile'] = $mobile;
     $_SESSION['Hash'] = $hash;
-    $_SESSION['Addr'] = $addr;
-    $_SESSION['Rating'] = 0;
+    $_SESSION['Course'] = $course;
 }
 
 
@@ -45,8 +44,8 @@ if($length != 10)
     }
     else
     {
-    	$sql = "INSERT INTO student (bname, busername, bpassword, bhash, bmobile, bemail, baddress)
-    			VALUES ('$name','$user','$pass','$hash','$mobile','$email','$addr')";
+    	$sql = "INSERT INTO student (bname, broll, bpassword, bhash, bmobile, bemail, bcourse)
+    			VALUES ('$name','$roll','$pass','$hash','$mobile','$email','$course')";
 
     	if (mysqli_query($conn, $sql))
     	{
@@ -56,7 +55,7 @@ if($length != 10)
             $_SESSION['picStatus'] = 0;
             $_SESSION['picExt'] = png;
 
-            $sql = "SELECT * FROM student WHERE busername='$user'";
+            $sql = "SELECT * FROM student WHERE broll='$roll'";
             $result = mysqli_query($conn, $sql);
             $User = $result->fetch_assoc();
             $_SESSION['id'] = $User['bid'];
@@ -90,7 +89,7 @@ if($length != 10)
 
             //$check = mail( $to, $subject, $message_body );
 
-            header("location: profile.php");
+            header("location: StudentProfile.php");
     	}
     	else
     	{

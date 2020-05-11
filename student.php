@@ -57,7 +57,7 @@
 							<form method="post" action="Login/StudentLogin.php">
 								<div class="row uniform 50%">
 									<div class="7u$">
-										<input type="text" name="uname" id="uname" value="" placeholder="UserName" style="width:80%" required/>
+										<input type="text" name="roll" id="roll" value="" placeholder="Roll No." style="width:80%" required/>
 									</div>
 									<div class="7u$">
 										<input type="password" name="pass" id="pass" value="" placeholder="Password" style="width:80%" required/>
@@ -94,7 +94,7 @@
 										<input type="text" name="name" id="name" value="" placeholder="Name" required/>
 									</div>
 									<div class="3u 12u$(xsmall)">
-										<input type="text" name="uname" id="uname" value="" placeholder="UserName" required/>
+										<input type="text" name="roll" id="roll" value="" placeholder="Roll No." required/>
 									</div>
 								</div>
 								<div class="row uniform">
@@ -116,7 +116,11 @@
 								</div>
 								<div class="row uniform">
 									<div class="6u 12u$(xsmall)">
-										<input type="text" name="addr" id="addr" value="" placeholder="Address" style="width:80%" required/>
+										<select id="course" required>
+										<option value="bca">BCA</option>
+										<option value="bba">BBA</option>
+										<option value="bam">BAM</option>
+										</select>
 									</div>
 								</div>
 								<div class="row uniform">

@@ -28,13 +28,13 @@ SET time_zone = "+00:00";
 CREATE TABLE `student` (
   `bid` int(100) NOT NULL,
   `bname` varchar(100) NOT NULL,
-  `busername` varchar(100) NOT NULL,
+  `broll` varchar(100) NOT NULL,
   `bpassword` varchar(100) NOT NULL,
   `bhash` varchar(100) NOT NULL,
   `bemail` varchar(100) NOT NULL,
   `bmobile` varchar(100) NOT NULL,
-  `baddress` text NOT NULL,
-  `bactive` int(100) NOT NULL DEFAULT '0'
+  `bcourse` text NOT NULL,
+  `bactive` int(100) NOT NULL DEFAULT '1' /* temporary */
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -51,21 +51,10 @@ CREATE TABLE `faculty` (
   `fhash` varchar(255) NOT NULL,
   `femail` varchar(255) NOT NULL,
   `fmobile` varchar(255) NOT NULL,
-  `faddress` text NOT NULL,
   `factive` int(255) NOT NULL DEFAULT '0',
-  `frating` int(11) NOT NULL DEFAULT '0',
   `picExt` varchar(255) NOT NULL DEFAULT 'png',
   `picStatus` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `faculty`
---
-
-INSERT INTO `faculty` (`fid`, `fname`, `fusername`, `fpassword`, `fhash`, `femail`, `fmobile`, `faddress`, `factive`, `frating`, `picExt`, `picStatus`) VALUES
-(3, 'Kaivalya Hemant Mendki', 'ThePhenom', '$2y$10$22ezmzHRa9c5ycHmVm5RpOnlT4LwFaDZar1XhmLRJQKGrcVRhPgti', '61b4a64be663682e8cb037d9719ad8cd', 'kmendki98@gmail.com', '8600611198', 'abcde', 0, 0, 'png', 0);
-
--- --------------------------------------------------------
 
 
 --

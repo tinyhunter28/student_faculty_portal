@@ -116,11 +116,6 @@
 			                        </div>
 								</div>
 								<div class="row uniform">
-									<div class="6u 12u$(xsmall)">
-										<input type="text" name="addr" id="addr" value="" placeholder="Address" style="width:80%" required/>
-									</div>
-								</div>
-								<div class="row uniform">
 									<div class="3u 12u$(small)">
 										<input type="submit" value="Submit" name="submit" class="special" /></li>
 									</div>
