@@ -116,10 +116,10 @@
 								</div>
 								<div class="row uniform">
 									<div class="6u 12u$(xsmall)">
-										<select id="course" required>
-										<option value="bca">BCA</option>
-										<option value="bba">BBA</option>
-										<option value="bam">BAM</option>
+										<select id="course" name="course" required>
+										<option value="BCA">BCA</option>
+										<option value="BBA">BBA</option>
+										<option value="BAM">BAM</option>
 										</select>
 									</div>
 								</div>

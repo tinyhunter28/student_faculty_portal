@@ -51,10 +51,26 @@ CREATE TABLE `faculty` (
   `fhash` varchar(255) NOT NULL,
   `femail` varchar(255) NOT NULL,
   `fmobile` varchar(255) NOT NULL,
-  `factive` int(255) NOT NULL DEFAULT '0',
+  `factive` int(255) NOT NULL DEFAULT '1',
   `picExt` varchar(255) NOT NULL DEFAULT 'png',
   `picStatus` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fbook`
+--
+
+CREATE TABLE `fbook` (
+  `fid` int(255) NOT NULL,
+  `pid` int(255) NOT NULL,
+  `bookname` varchar(255) NOT NULL,
+  `course` varchar(255) NOT NULL,
+  `bookdescription` varchar(255) NOT NULL,
+  `booktype` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 
 --
@@ -65,11 +81,17 @@ ALTER TABLE `student`
   ADD UNIQUE KEY `bid` (`bid`);
 
 --
--- Indexes for table `farmer`
+-- Indexes for table `faculty`
 --
 ALTER TABLE `faculty`
   ADD PRIMARY KEY (`fid`),
   ADD UNIQUE KEY `fid` (`fid`);
+  
+--
+-- Indexes for table `fbook`
+--
+ALTER TABLE `fbook`
+  ADD PRIMARY KEY (`pid`);
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -81,3 +103,9 @@ ALTER TABLE `student`
 --
 ALTER TABLE `faculty`
   MODIFY `fid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  
+--
+-- AUTO_INCREMENT for table `fproduct`
+--
+ALTER TABLE `fbook`
+  MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

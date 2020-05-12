@@ -39,22 +39,22 @@
             require 'Login/FacultyMenu.php';
         ?>
 
-        <section id="one" class="wrapper style1 align">
+        <section id="banner_fac" class="wrapper style1 align">
             <div class="inner">
                 <div class="box">
                 <header>
                     <center>
-                    <span><img src="<?php echo 'images/profileImages/'.$_SESSION['picName'].'?'.mt_rand(); ?>" class="image-circle" class="img-responsive" height="200%"></span>
+                    <span><img src="<?php echo 'images/profileImages/'.$_SESSION['picName'].'?'.mt_rand(); ?>" class="image-circle" class="img-responsive" style="width:256px;height:256px;"></span>
                     <br>
                     <h2><?php echo $_SESSION['Name'];?></h2>
-                    <h4 style="color: black;"><?php echo $_SESSION['Username'];?></h4>
+                    <h4 style="color: white;"><?php echo $_SESSION['Username'];?></h4>
                     <br>
                 </center>
                 </header>
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-3">
-                            <b><font size="+1" color="black">Email ID : </font></b>
+                            <b><font size="+1" color="white">Email ID : </font></b>
                             <font size="+1"><?php echo $_SESSION['Email'];?></font>
                         </div>
                         <div class="col-sm-3"></div>
@@ -63,7 +63,7 @@
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-3">
-                            <b><font size="+1" color="black">Mobile No : </font></b>
+                            <b><font size="+1" color="white">Mobile No : </font></b>
                             <font size="+1"><?php echo $_SESSION['Mobile'];?></font>
                         </div>
                         <div class="col-sm-3"></div>
@@ -77,9 +77,6 @@
                                     <div class="3u 12u$(large)">
                                         <a href="profileEdit.php" class="btn btn-danger" style="text-decoration: none;">Edit Profile</a>
                                     </div>
-                                    <div class="3u 12u$(xsmall)">
-            							<a href="UploadBook.php" class="btn btn-danger" style="text-decoration: none;">Upload Book</a>
-            						</div>
                                     <div class="3u 12u$(large)">
                                         <a href="Login/logout.php" class="btn btn-danger" style="text-decoration: none;">LOG OUT</a>
                                     </div>

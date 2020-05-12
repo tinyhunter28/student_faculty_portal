@@ -3,7 +3,6 @@
 
     $user = dataFilter($_POST['uname']);
     $pass = $_POST['pass'];
-    $category = dataFilter($_POST['category']);
 
     require '../db.php';
 
@@ -46,13 +45,11 @@
                 $_SESSION['picId'] = $_SESSION['id'];
                 $_SESSION['picName'] = "profile".$_SESSION['picId'].".".$_SESSION['picExt'];
             }
-            //echo $_SESSION['Email']."  ".$_SESSION['Name'];
 
-            header("location: profile.php");
+            header("location: FacultyProfile.php");
         }
         else
         {
-            //echo mysqli_error($conn);
             $_SESSION['message'] = "Invalid User Credentials!";
             header("location: error.php");
         }

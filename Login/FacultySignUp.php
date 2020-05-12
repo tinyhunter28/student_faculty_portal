@@ -47,7 +47,7 @@ if($length != 10)
 
     	if (mysqli_query($conn, $sql))
     	{
-    	    $_SESSION['Active'] = 0;
+    	    $_SESSION['Active'] = 1;
             $_SESSION['logged_in'] = true;
 
             $_SESSION['picStatus'] = 0;
@@ -69,29 +69,15 @@ if($length != 10)
                 $_SESSION['picName'] = "profile".$_SESSION['picId'].".".$_SESSION['picExt'];
             }
 
-            $_SESSION['message'] =
-
-                     "Confirmation link has been sent to $email, please verify
-                     your account by clicking on the link in the message!";
-
-            $to      = $email;
-            $subject = "Account Verification ( ArtCircle.com )";
             $message_body = "
             Hello '.$user.',
 
-            Thank you for signing up!
-
-            Please click this link to activate your account:
-
-            http://localhost/AgroCulture/Login/verify.php?email=".$email."&hash=".$hash;
-
-            //$check = mail( $to, $subject, $message_body );
+            Thank you for signing up!";
 
             header("location: FacultyProfile.php");
     	}
     	else
     	{
-    	    //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     	    $_SESSION['message'] = "Registration failed!";
             header("location: error.php");
     	}

@@ -11,7 +11,7 @@
 
        $email =  $_SESSION['Email'];
        $name =  $_SESSION['Name'];
-       $user =  $_SESSION['Username'];
+       $user =  $_SESSION['Roll No.'];
        $mobile = $_SESSION['Mobile'];
        $active = $_SESSION['Active'];
     }
@@ -20,7 +20,7 @@
 <!DOCTYPE html>
     <html >
      <head>
-        <title>AgroCulture</title>
+        <title>Student POrtal</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="../bootstrap\css\bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,6 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/skel.min.js"></script>
 		<script src="../js/skel-layers.min.js"></script>
@@ -41,13 +40,13 @@
 
     <body>
         <?php
-            require 'menu.php';
+            require 'StudentMenu.php';
         ?>
 
-        <section id="banner" class="wrapper">
+        <section id="banner_stu" class="wrapper">
             <div class="container">
                 <header class="major">
-                    <h2>Welcome</h2>
+                    <h2>Welcome to Student Portal</h2>
                 </header>
                 <p>
                 <?php
@@ -72,26 +71,14 @@
                   <h2><?php echo $name; ?></h2>
                   <p><?= $email ?></p>
 
-                 <?php if($_SESSION['Category'] == 1): ?>
                     <div class="row uniform">
                         <div class="6u 12u$(xsmall)">
-                            <a href=../profileView.php class="button special">My Profile</a>
+                            <a href=../StudentProfileView.php class="button special">My Profile</a>
                         </div>
                         <div class="6u 12u$(xsmall)">
                             <a href="logout.php" class="button special">LOG OUT</a>
                         </div>
                     </div>
-                <?php else: ?>
-                    <div class="row uniform">
-                        <div class="6u 12u$(xsmall)">
-                            <a href=../market.php class="button special">Digital Market</a>
-                        </div>
-                        <div class="6u 12u$(xsmall)">
-                            <a href="logout.php" class="button special">LOG OUT</a>
-                        </div>
-                    </div>
-
-                <?php endif; ?>
 
 
     </body>
