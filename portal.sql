@@ -63,12 +63,12 @@ CREATE TABLE `faculty` (
 --
 
 CREATE TABLE `fbook` (
-  `fid` int(255) NOT NULL,
   `pid` int(255) NOT NULL,
   `bookname` varchar(255) NOT NULL,
-  `course` varchar(255) NOT NULL,
-  `bookdescription` varchar(255) NOT NULL,
-  `booktype` varchar(255) NOT NULL
+  `bcourse` varchar(255) NOT NULL,
+  `bookdesc` varchar(255) NOT NULL,
+  `bpdf` varchar(255) NOT NULL DEFAULT 'blank.pdf',
+  `pdfStatus` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -97,15 +97,15 @@ ALTER TABLE `fbook`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `bid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `bid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `fid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `fid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
   
 --
 -- AUTO_INCREMENT for table `fproduct`
 --
 ALTER TABLE `fbook`
-  MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;

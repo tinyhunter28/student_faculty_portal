@@ -4,65 +4,62 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-		$productType = $_POST['type'];
-		$productName = dataFilter($_POST['pname']);
-		$productInfo = $_POST['pinfo'];
-		$productPrice = dataFilter($_POST['price']);
-		$fid = $_SESSION['id'];
+		$pid = $_SESSION['id'];
+		$bookName = dataFilter($_POST['bookname']);
+		$course = dataFilter($_POST['course']);
+		$bookDesc = $_POST['bookdesc'];
 
-		$sql = "INSERT INTO fproduct (fid, product, pcat, pinfo, price)
-			   VALUES ('$fid', '$productName', '$productType', '$productInfo', '$productPrice')";
+		$sql = "INSERT INTO fbook (pid, bookname, bcourse, bookdesc)
+			   VALUES ('$pid', '$bookName', '$course', '$bookDesc')";
 		$result = mysqli_query($conn, $sql);
 		if(!$result)
 		{
-			$_SESSION['message'] = "Unable to upload Product !!!";
+			$_SESSION['message'] = "Unable to upload Book !!!";
 			header("Location: Login/error.php");
 		}
 		else {
-			$_SESSION['message'] = "successfull !!!";
+			$_SESSION['message'] = "Successful !!!";
 		}
 
-		$pic = $_FILES['productPic'];
-		$picName = $pic['name'];
-		$picTmpName = $pic['tmp_name'];
-		$picSize = $pic['size'];
-		$picError = $pic['error'];
-		$picType = $pic['type'];
-		$picExt = explode('.', $picName);
-		$picActualExt = strtolower(end($picExt));
-		$allowed = array('jpg','jpeg','png');
+		$pdf = $_FILES['bookPdf'];
+		$pdfName = $pdf['name'];
+		$pdfTmpName = $pdf['tmp_name'];
+		$pdfSize = $pdf['size'];
+		$pdfError = $pdf['error'];
+		$pdfType = $pdf['type'];
+		$pdfExt = explode('.', $pdfName);
+		$pdfActualExt = strtolower(end($pdfExt));
+		$allowed = array('pdf','doc','docx');
 
-		if(in_array($picActualExt, $allowed))
+		if(in_array($pdfActualExt, $allowed))
 		{
-			if($picError === 0)
+			if($pdfError === 0)
 			{
-				$_SESSION['productPicId'] = $_SESSION['id'];
-				$picNameNew = $productName.$_SESSION['productPicId'].".".$picActualExt ;
-				$_SESSION['productPicName'] = $picNameNew;
-				$_SESSION['productPicExt'] = $picActualExt;
-				$picDestination = "images/productImages/".$picNameNew;
-				move_uploaded_file($picTmpName, $picDestination);
+				$_SESSION['pdfId'] = $_SESSION['id'];
+				$pdfNameNew = $bookName.$_SESSION['pdfId'].".".$pdfActualExt ;
+				$_SESSION['bookPdfExt'] = $pdfActualExt;
+				$bookDestination = "books/pdf/".$pdfNameNew;
+				move_uploaded_file($pdfTmpName, $bookDestination);
 				$id = $_SESSION['id'];
 
-				$sql = "UPDATE fproduct SET picStatus=1, pimage='$picNameNew' WHERE product='$productName';";
+				$sql = "UPDATE fbook SET pdfStatus=1, bpdf='$pdfNameNew' WHERE bookname='$bookName';";
 
 				$result = mysqli_query($conn, $sql);
 				if($result)
 				{
 
-					$_SESSION['message'] = "Product Image Uploaded successfully !!!";
-					header("Location: market.php");
+					$_SESSION['message'] = "Book Uploaded successfully !!!";
+					header("Location: bookMenu.php");
 				}
 				else
 				{
-					//die("bad");
-					$_SESSION['message'] = "There was an error in uploading your product Image! Please Try again!";
+					$_SESSION['message'] = "There was an error in uploading your Book! Please Try again!";
 					header("Location: Login/error.php");
 				}
 			}
 			else
 			{
-				$_SESSION['message'] = "There was an error in uploading your product image! Please Try again!";
+				$_SESSION['message'] = "There was an error in uploading your Book! Please Try again!";
 				header("Location: Login/error.php");
 			}
 		}
@@ -87,7 +84,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>AgroCulture</title>
+		<title>Faculty Portal</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -106,58 +103,37 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
-		<script src="https://cdn.ckeditor.com/4.8.0/full/ckeditor.js"></script>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
 
-		<?php require 'menu.php'; ?>
+		<?php require 'Login/FacultyMenu.php'; ?>
 
 		<!-- One -->
 
-			<section id="one" class="wrapper style1 align-center">
+			<section id="banner_fac" class="wrapper style1 align-center">
 				<div class="container">
-					<form method="POST" action="uploadProduct.php" enctype="multipart/form-data">
-						<h2>Enter the Product Information here..!!</h2>
+					<form method="POST" action="UploadBooks.php" enctype="multipart/form-data">
+						<h2>Enter the BOOK Information here..!!</h2>
 						<br>
-				<center>
-					<input type="file" name="productPic"></input>
-					<br />
-				</center>
-				<div class="row">
-					  <div class="col-sm-6">
-						  <div class="select-wrapper" style="width: auto" >
-							  <select name="type" id="type" required style="background-color:white;color: black;">
-								  <option value="" style="color: black;">- Category -</option>
-								  <option value="Fruit" style="color: black;">Fruit</option>
-								  <option value="Vegetable" style="color: black;">Vegetable</option>
-								  <option value="Grains" style="color: black;">Grains</option>
-							  </select>
+						<input type="file" name="bookPdf" style="background-color:white;color: black;"></input>
+						<br>
+						<div class="row">
+						<div class="col-sm-6">
+							<input type="text" name="bookname" id="bookname" value="" placeholder="Book Name" style="background-color:white;color: black;" />
+						<br>
+							<input type="text" name="bookdesc" id="bookdesc" value="" placeholder="Book Description" style="background-color:white;color: black;" />
+						<br>
+							<select id="course" name="course" style="background-color:white;color: black;" required>
+								<option value="BCA">BCA</option>
+								<option value="BBA">BBA</option>
+								<option value="BAM">BAM</option>
+							</select>
+						<br>
+							<button class="button fit" style="width:auto; color:black;">Submit</button>
 						</div>
-					  </div>
-					  <div class="col-sm-6">
-						<input type="text" name="pname" id="pname" value="" placeholder="Product Name" style="background-color:white;color: black;" />
-					  </div>
+						</div>
+					</form>
 				</div>
-				<br>
-				<div>
-					<textarea  name="pinfo" id="pinfo" rows="12"></textarea>
-				</div>
-			<br>
-			<div class="row">
-				<div class="col-sm-6">
-					  <input type="text" name="price" id="price" value="" placeholder="Price" style="background-color:white;color: black;" />
-				</div>
-				<div class="col-sm-6">
-					<button class="button fit" style="width:auto; color:black;">Submit</button>
-				</div>
-			</div>
-			</form>
-		</div>
-	</section>
-
-		<script>
-			 CKEDITOR.replace( 'pinfo' );
-		</script>
+			</section>
 	</body>
 </html>
