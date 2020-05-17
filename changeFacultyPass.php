@@ -6,14 +6,14 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        $user = dataFilter($_POST['uname']);
+        $user = dataFilter($_SESSION['Name']);
         $currPass = $_POST['currPass'];
         $newPass = $_POST['newPass'];
         $conNewPass = $_POST['conNewPass'];
         $newHash = dataFilter( md5( rand(0,1000) ) );
     }
 
-    $sql = "SELECT * FROM faculty WHERE fusername='$user'";
+    $sql = "SELECT * FROM faculty WHERE fname='$user'";
     $result = mysqli_query($conn, $sql);
     $num_rows = mysqli_num_rows($result);
 
@@ -27,18 +27,19 @@
     {
         $User = $result->fetch_assoc();
 
-        if(password_verify($_POST['currPass'], $User['Password']))
+        if(password_verify($_POST['currPass'], $User['fpassword']))
         {
             if($newPass == $conNewPass)
             {
                 $conNewPass = dataFilter(password_hash($_POST['conNewPass'], PASSWORD_BCRYPT));
                 $currHash = $_SESSION['Hash'];
-                $sql = "UPDATE faculty SET Password='$conNewPass', Hash='$newHash' WHERE Hash='$currHash';";
+                $sql = "UPDATE faculty SET fpassword='$conNewPass', fhash='$newHash' WHERE fhash='$currHash';";
 
                 $result = mysqli_query($conn, $sql);
 
                 if($result)
                 {
+					echo "Success";
                     //$_SESSION['message'] = "Password changed Successfully!";
                     //header("location: ../Login/success.php");
                 }
@@ -51,8 +52,8 @@
         }
         else
         {
-            $_SESSION['message'] = "Invalid current User Credentials!";
-            header("location: ../Login/error.php");
+            //$_SESSION['message'] = "Invalid current User Credentials!";
+            //header("location: ../Login/error.php");
         }
     }
 

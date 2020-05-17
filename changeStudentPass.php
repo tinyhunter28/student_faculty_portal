@@ -6,7 +6,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        $user = dataFilter($_POST['roll']);
+        $user = dataFilter($_SESSION['Roll No.']);
         $currPass = $_POST['currPass'];
         $newPass = $_POST['newPass'];
         $conNewPass = $_POST['conNewPass'];
@@ -27,18 +27,19 @@
     {
         $User = $result->fetch_assoc();
 
-        if(password_verify($_POST['currPass'], $User['Password']))
+        if(password_verify($_POST['currPass'], $User['bpassword']))
         {
             if($newPass == $conNewPass)
             {
                 $conNewPass = dataFilter(password_hash($_POST['conNewPass'], PASSWORD_BCRYPT));
                 $currHash = $_SESSION['Hash'];
-                $sql = "UPDATE student SET Password='$conNewPass', Hash='$newHash' WHERE Hash='$currHash';";
+                $sql = "UPDATE student SET bpassword='$conNewPass', bhash='$newHash' WHERE bhash='$currHash';";
 
                 $result = mysqli_query($conn, $sql);
 
                 if($result)
                 {
+					echo "Success";
                     //$_SESSION['message'] = "Password changed Successfully!";
                     //header("location: ../Login/success.php");
                 }
@@ -51,8 +52,8 @@
         }
         else
         {
-            $_SESSION['message'] = "Invalid current User Credentials!";
-            header("location: ../Login/error.php");
+            //$_SESSION['message'] = "Invalid current User Credentials!";
+            //header("location: ../Login/error.php");
         }
     }
 

@@ -76,13 +76,13 @@
                             <center>
                                 <div class="row uniform">
                                     <div class="3u 12u$(large)">
-                                        <a href="changeStudentPass.php" class="btn btn-danger" style="text-decoration: none;">Change Password</a>
+                                        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto">Change Password</button>
                                     </div>
                                     <div class="3u 12u$(large)">
-                                        <a href="profileEdit.php" class="btn btn-danger" style="text-decoration: none;">Edit Profile</a>
+                                        <button onclick="editProfile()" style="width:auto">Edit Profile</button>
                                     </div>
                                     <div class="3u 12u$(large)">
-                                        <a href="Login/logout.php" class="btn btn-danger" style="text-decoration: none;">LOG OUT</a>
+                                        <button onclick="logout()" style="width:auto">Log Out</button>
                                     </div>
                                 </div>
                             </center>
@@ -92,15 +92,53 @@
             </div>
         </section>
 
-        <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/jquery.scrolly.min.js"></script>
-            <script src="assets/js/jquery.scrollex.min.js"></script>
-            <script src="assets/js/skel.min.js"></script>
-            <script src="assets/js/util.js"></script>
-            <script src="assets/js/main.js"></script>
+		<!--Student Password Change-->
 
+		<div id="id01" class="modal">
+			<form class="modal-content animate" action="changeStudentPass.php" method='POST'>
+		
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+			</div>
 
+			<div class="container">
+			<h3>Change Password</h3>
+				<form method="post" action="changeStudentPass.php">
+					<div class="row uniform 50%">
+						<div class="7u$">
+							<input type="password" name="currPass" id="currPass" value="" placeholder="Current Password" style="width:80%" required/>
+						</div>
+						<div class="7u$">
+							<input type="password" name="newPass" id="newPass" value="" placeholder="New Password" style="width:80%" required/>
+						</div>
+						<div class="7u$">
+							<input type="password" name="conNewPass" id="conNewPass" value="" placeholder="Confirm New Password" style="width:80%" required/>
+						</div>
+					</div>
+					<center>
+					<div class="row uniform">
+						<div class="7u 12u$(small)">
+							<input type="submit" value="Submit" />
+						</div>
+					</div>
+					</center>
+				</form>
+			</div>
+		
+			</form>
+		</div>
+		
+		<script>
+		function editProfile()
+		{
+			location.href = "profileEdit.php";
+		} 
+
+		function logout()
+		{
+			location.href = "Login/logout.php";
+		} 
+		</script>
 
     </body>
 </html>
