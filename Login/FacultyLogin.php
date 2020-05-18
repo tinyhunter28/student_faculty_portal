@@ -29,7 +29,6 @@
             $_SESSION['Name'] = $User['fname'];
             $_SESSION['Username'] = $User['fusername'];
             $_SESSION['Mobile'] = $User['fmobile'];
-            $_SESSION['Addr'] = $User['faddress'];
             $_SESSION['Active'] = $User['factive'];
             $_SESSION['picStatus'] = $User['picStatus'];
             $_SESSION['picExt'] = $User['picExt'];

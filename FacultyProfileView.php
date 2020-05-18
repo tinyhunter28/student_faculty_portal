@@ -75,7 +75,7 @@
                                         <button onclick="document.getElementById('id01').style.display='block'" style="width:auto">Change Password</button>
                                     </div>
                                     <div class="3u 12u$(large)">
-                                        <button onclick="editProfile()" style="width:auto">Edit Profile</button>
+                                        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto">Edit Profile</button>
                                     </div>
                                     <div class="3u 12u$(large)">
                                         <button onclick="logout()" style="width:auto">Log Out</button>
@@ -124,11 +124,46 @@
 			</form>
 		</div>
 		
+		<!-- Edit Profile -->
+
+		<div id="id02" class="modal">
+			<form class="modal-content animate" action="FacultyprofileEdit.php" method='POST'>
+		
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+			</div>
+
+			<div class="container">
+			<h3>Edit Profile</h3>
+				<form method="post" action="FacultyprofileEdit.php">
+					<div class="row uniform 50%">
+						<div class="7u$">
+							<input type="text" name="newName" id="newName" value="" placeholder=" New Name"/>
+						</div>
+						<div class="7u$">
+							<input type="text" name="newUname" id="newUname" value="" placeholder=" New Username" />
+						</div>
+						<div class="7u$">
+							<input type="text" name="newMobile" id="newMobile" value="" placeholder=" New Mobile Number" />
+						</div>
+						<div class="7u$">
+							<input type="email" name="newEmail" id="newEmail" value="" placeholder="New Email" />
+						</div>
+					</div>
+					<center>
+					<div class="row uniform">
+						<div class="7u 12u$(small)">
+							<input type="submit" value="Submit" />
+						</div>
+					</div>
+					</center>
+				</form>
+			</div>
+		
+			</form>
+		</div>
+		
 		<script>
-		function editProfile()
-		{
-			location.href = "profileEdit.php";
-		} 
 
 		function logout()
 		{
