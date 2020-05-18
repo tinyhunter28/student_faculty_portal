@@ -55,51 +55,37 @@
 				<section id="two" class="wrapper style2 align-center">
 				<div class="container">
 				<?php
-					 	$sql = "SELECT * FROM fbook WHERE 1";
+					$sql = "SELECT * FROM fbook WHERE 1";
 					$result = mysqli_query($conn, $sql);
-
-					?>
+				?>
 					<div class="row">
-					<?php while($row = $result->fetch_array()):
+					
+						<?php while($row = $result->fetch_array()):
 							$pdfDestination = "books/pdf/".$row['bpdf'];
-					?>
-						<!-- <div class="col-md-4">
-							<section>
-							<strong><h2 class="title" style="color:black; "><?php echo $row['bookname'].'';?></h2></strong>
-							<a href="<?php echo $pdfDestination;?>" style="color:red"/>Click Here</a>
+						?>
 
-							<div style="align: left">
-							<blockquote>
-							<?php echo "Course : ".$row['bcourse'].'';?>
-							<br>
-							<?php echo "Description : ".$row['bookdesc'];?>
-							<br>
-							</blockquote>
+							<table>
+							<tr>
+							<th>Book Name</th>
+							<th>Book Description</th>
+							<th>Course</th>
+							<th>Link</th>
+							<th>Action</th>
+							</tr>
+							<tr>
+							<td><?php echo $row['bookname'].'';?></td>
+							<td><?php echo "Description : ".$row['bookdesc'];?></td>
+							<td><?php echo "Course : ".$row['bcourse'].'';?></td>
+							<td><a href="<?php echo $pdfDestination;?>" style="color:red"/>Click Here</a></td>
+							<td><a href="delete-process.php?id=<?php echo $row["pid"]; ?>" style="color:red"/>Delete</a></td>
+							</tr>
+							</table>
 
-							</section>
-						</div> -->
-						<table>
-						<tr>
-						<th>Book Name</th>
-						<th>Book Description</th>
-						<th>Course</th>
-						<th>Link</th>
-						</tr>
-						<tr>
-						<td><?php echo $row['bookname'].'';?></td>
-						<td><?php echo "Description : ".$row['bookdesc'];?></td>
-						<td><?php echo "Course : ".$row['bcourse'].'';?></td>
-						<td><a href="<?php echo $pdfDestination;?>" style="color:red"/>Click Here</a></td>
-						</tr>
-						</table>
-
-					<?php endwhile;	?>
-
+						<?php endwhile;	?>
 
 					</div>
 
 				</section>
-					</header>
 
 			</section>
 
