@@ -32,7 +32,9 @@
                 </header>
                 <p>
                     <?php
+						if(isset($_SERVER['HTTP_REFERER'])){
                         $page = $_SERVER['HTTP_REFERER'];
+						}
                         if(isset($_SESSION['message']) AND !empty($_SESSION['message']))
                         {
                             echo $_SESSION['message'];
@@ -43,7 +45,9 @@
                         }
                     ?>
                 </p><br />
+				<?php if(isset($_SERVER['HTTP_REFERER'])){ ?>
                 <a href ="<?= $page ?>" class="button special">Retry</a>
+				<?php } ?>
 
 
     	<?php $_SESSION['message'] = ""; ?>

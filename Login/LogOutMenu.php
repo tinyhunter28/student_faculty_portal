@@ -1,9 +1,3 @@
-<?php
-		$loginProfile = "Login";
-		$link = "../index.php";
-		$logo = "glyphicon glyphicon-log-in";
-?>
-
 <!DOCTYPE html>
 			<header id="header">
 				<h1><a href="../index.php">Student Faculty Portal</a></h1>

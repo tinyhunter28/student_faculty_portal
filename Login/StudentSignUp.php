@@ -49,7 +49,7 @@ if($length != 10)
     	if (mysqli_query($conn, $sql))
     	{
     	    $_SESSION['Active'] = 1;
-            $_SESSION['logged_in'] = true;
+            $_SESSION['stu_logged_in'] = true;
 
             $_SESSION['picStatus'] = 0;
             $_SESSION['picExt'] = png;

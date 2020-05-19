@@ -33,7 +33,7 @@
             $_SESSION['Active'] = $User['bactive'];
             $_SESSION['picStatus'] = $User['picStatus'];
             $_SESSION['picExt'] = $User['picExt'];
-            $_SESSION['logged_in'] = true;
+            $_SESSION['stu_logged_in'] = true;
 
             if($_SESSION['picStatus'] == 0)
             {

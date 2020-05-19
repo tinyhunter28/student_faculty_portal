@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-	if(!isset($_SESSION['logged_in']) OR $_SESSION['logged_in'] != 1)
+	if(!isset($_SESSION['fac_logged_in']) OR $_SESSION['fac_logged_in'] != true)
 	{
 		$_SESSION['message'] = "You have to Login to view this page!";
 		header("Location: Login/error.php");

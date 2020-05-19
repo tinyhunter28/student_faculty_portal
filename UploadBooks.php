@@ -1,16 +1,23 @@
 <?php
- 	session_start();
+	session_start();
+	if(!isset($_SESSION['fac_logged_in']) OR $_SESSION['fac_logged_in'] != true)
+	{
+		$_SESSION['message'] = "Sorry you don't have permission, Only Faculty Can Upload!!!";
+		header("Location: Login/error.php");
+	}
+?>
+
+<?php
 	require 'db.php';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-		$pid = $_SESSION['id'];
 		$bookName = dataFilter($_POST['bookname']);
 		$course = dataFilter($_POST['course']);
 		$bookDesc = $_POST['bookdesc'];
 
-		$sql = "INSERT INTO fbook (pid, bookname, bcourse, bookdesc)
-			   VALUES ('$pid', '$bookName', '$course', '$bookDesc')";
+		$sql = "INSERT INTO fbook (bookname, bcourse, bookdesc)
+			   VALUES ('$bookName', '$course', '$bookDesc')";
 		$result = mysqli_query($conn, $sql);
 		if(!$result)
 		{

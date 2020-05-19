@@ -1,9 +1,9 @@
 <?php
-	if(isset($_SESSION['logged_in']) AND $_SESSION['logged_in'] == 1)
+	if(isset($_SESSION['fac_logged_in']) AND $_SESSION['fac_logged_in'] == true)
 	{
 		$loginProfile = "My Profile: ". $_SESSION['Username'];
 		$logo = "glyphicon glyphicon-user";
-			$link = "FacultyProfile.php";
+			$link = "../FacultyProfileView.php";
 	}
 	else
 	{
@@ -15,7 +15,7 @@
 
 <!DOCTYPE html>
 			<header id="header">
-				<h1><a href="../index.php">Student Faculty Portal</a></h1>
+				<h1><a href="../Login/FacultyProfile.php">Student Faculty Portal</a></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="../Login/FacultyProfile.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>

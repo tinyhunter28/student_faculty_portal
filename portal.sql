@@ -105,7 +105,7 @@ ALTER TABLE `faculty`
   MODIFY `fid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
   
 --
--- AUTO_INCREMENT for table `fproduct`
+-- AUTO_INCREMENT for table `fbook`
 --
 ALTER TABLE `fbook`
   MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;

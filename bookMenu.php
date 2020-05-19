@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	require 'db.php';
+	if(isset($_SESSION['fac_logged_in']) AND $_SESSION['fac_logged_in'] == true OR isset($_SESSION['stu_logged_in']) AND $_SESSION['stu_logged_in'] == true)
+	{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,17 +36,22 @@
 			text-align: left;
 			}
 	</style>
+	
+	<?php
+	
+	if(isset($_SESSION['fac_logged_in']) AND $_SESSION['fac_logged_in'] == true) {
+	?>
 	<body class>
-
-		<?php
-			require 'Login/FacultyMenu.php';
-			function dataFilter($data)
-			{
-				$data = trim($data);
-				$data = stripslashes($data);
-				$data = htmlspecialchars($data);
-				return $data;
-			}
+		<?php 
+		
+		require 'Login/FacultyMenu.php';
+		function dataFilter($data)
+		{
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}
 		?>
 
 		<!-- One -->
@@ -90,4 +97,71 @@
 			</section>
 
 	</body>
+	<?php 
+	} else if(isset($_SESSION['stu_logged_in']) AND $_SESSION['stu_logged_in'] == true)
+	{
+	?>
+	
+	<body class>
+		<?php 
+			require 'Login/StudentMenu.php';
+			function dataFilter($data)
+			{
+				$data = trim($data);
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				return $data;
+			}
+		?>
+
+		<!-- One -->
+			<section id="main" class="wrapper style1 align-center" >
+				<div class="container">
+						<h2>Welcome to Book Menu</h2>
+
+				<section id="two" class="wrapper style2 align-center">
+				<div class="container">
+				<?php
+					$course = $_SESSION['Course'];
+					$sql = "SELECT * FROM fbook WHERE bcourse='$course'";
+					$result = mysqli_query($conn, $sql);
+				?>
+					<div class="row">
+					
+						<?php while($row = $result->fetch_array()):
+							$pdfDestination = "books/pdf/".$row['bpdf'];
+						?>
+
+							<table>
+							<tr>
+							<th>Book Name</th>
+							<th>Book Description</th>
+							<th>Course</th>
+							<th>Link</th>
+							</tr>
+							<tr>
+							<td><?php echo $row['bookname'].'';?></td>
+							<td><?php echo "Description : ".$row['bookdesc'];?></td>
+							<td><?php echo "Course : ".$row['bcourse'].'';?></td>
+							<td><a href="<?php echo $pdfDestination;?>" style="color:red"/>Click Here</a></td>
+							</tr>
+							</table>
+
+						<?php endwhile;	?>
+
+					</div>
+
+				</section>
+
+			</section>
+
+	</body>
+	<?php } ?>
 </html>
+<?php 
+	} else
+	{
+	$_SESSION['message'] = "You have to Login to view this page!";
+		header("Location: Login/error.php");
+	}
+?>

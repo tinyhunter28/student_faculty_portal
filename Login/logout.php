@@ -1,6 +1,7 @@
 <?php
 	session_start();
-		$_SESSION['logged_in'] = false;
+		$_SESSION['stu_logged_in'] = false;
+		$_SESSION['fac_logged_in'] = false;
 	session_unset();
 	session_destroy();
 ?>
@@ -17,7 +18,6 @@
         <script src="../bootstrap\js\bootstrap.min.js"></script>
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/skel.min.js"></script>
 		<script src="../js/skel-layers.min.js"></script>
