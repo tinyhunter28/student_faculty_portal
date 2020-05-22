@@ -13,7 +13,6 @@
        $name =  $_SESSION['Name'];
        $user =  $_SESSION['Roll No.'];
        $mobile = $_SESSION['Mobile'];
-       $active = $_SESSION['Active'];
     }
 ?>
 
@@ -58,16 +57,6 @@
                 ?>
                 </p>
 
-                <?php
-                    if ( !$active )
-                    {
-                        echo
-                        "<div>
-                            Account is not verified! Please confirm your email by clicking
-                            on the email link!
-                        </div>";
-                    }
-                ?>
                   <h2><?php echo $name; ?></h2>
                   <p><?= $email ?></p>
 

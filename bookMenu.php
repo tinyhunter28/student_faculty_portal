@@ -62,13 +62,14 @@
 				<section id="two" class="wrapper style2 align-center">
 				<div class="container">
 				<?php
-					$sql = "SELECT * FROM fbook WHERE 1";
+					$uploader = $_SESSION['Email'];
+					$sql = "SELECT * FROM fbook WHERE fuploader='$uploader'";
 					$result = mysqli_query($conn, $sql);
 				?>
 					<div class="row">
 					
 						<?php while($row = $result->fetch_array()):
-							$pdfDestination = "books/pdf/".$row['bpdf'];
+							$docDestination = "books/doc/".$row['bdoc'];
 						?>
 
 							<table>
@@ -83,7 +84,7 @@
 							<td><?php echo $row['bookname'].'';?></td>
 							<td><?php echo "Description : ".$row['bookdesc'];?></td>
 							<td><?php echo "Course : ".$row['bcourse'].'';?></td>
-							<td><a href="<?php echo $pdfDestination;?>" style="color:red"/>Click Here</a></td>
+							<td><a href="<?php echo $docDestination;?>" style="color:red"/>Click Here</a></td>
 							<td><a href="delete-process.php?id=<?php echo $row["pid"]; ?>" style="color:red"/>Delete</a></td>
 							</tr>
 							</table>
@@ -129,7 +130,11 @@
 					<div class="row">
 					
 						<?php while($row = $result->fetch_array()):
-							$pdfDestination = "books/pdf/".$row['bpdf'];
+							$docDestination = "books/doc/".$row['bdoc'];
+							$user = $row['fuploader'];
+							$sql = "SELECT fname FROM faculty WHERE femail='$user'";
+							$result1 = mysqli_query($conn, $sql);
+							$user2 = $result1->fetch_array();
 						?>
 
 							<table>
@@ -138,12 +143,14 @@
 							<th>Book Description</th>
 							<th>Course</th>
 							<th>Link</th>
+							<th>Uploaded By:</th>
 							</tr>
 							<tr>
 							<td><?php echo $row['bookname'].'';?></td>
 							<td><?php echo "Description : ".$row['bookdesc'];?></td>
 							<td><?php echo "Course : ".$row['bcourse'].'';?></td>
-							<td><a href="<?php echo $pdfDestination;?>" style="color:red"/>Click Here</a></td>
+							<td><a href="<?php echo $docDestination;?>" style="color:red"/>Click Here</a></td>
+							<td><?php echo $user2['fname'].'';?></td>
 							</tr>
 							</table>
 

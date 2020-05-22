@@ -20,6 +20,7 @@
 					<ul>
 						<li><a href="../Login/FacultyProfile.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 						<li><a href="../UploadBooks.php"> Upload Books</a></li>
+						<li><a href="../bookMenu.php"> Book Menu</a></li>
 						<li><a href="<?= $link; ?>"><span class="<?php echo $logo; ?>"></span><?php echo" ". $loginProfile; ?></a></li>
 						<li><a href="../UploadNotice.php"> UploadNotice</a></li>
 						<li><a href="../Report.php"> Reports</a></li>

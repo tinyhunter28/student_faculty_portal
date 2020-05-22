@@ -14,7 +14,7 @@
     else
     {
 		$User = $result->fetch_assoc();
-		unlink(dirname(__FILE__) ."/books/pdf/".$User['bpdf']);
+		unlink(dirname(__FILE__) ."/books/doc/".$User['bdoc']);
 	}
 	
 	

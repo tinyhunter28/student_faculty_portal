@@ -44,7 +44,6 @@
                 <div class="box">
                 <header>
                     <center>
-                    <span><img src="<?php echo 'images/profileImages/'.$_SESSION['picName'].'?'.mt_rand(); ?>" class="image-circle" class="img-responsive" style="width:256px;height:256px;"></span>
                     <br>
                     <h2><?php echo $_SESSION['Name'];?></h2>
                     <h4 style="color: white;"><?php echo $_SESSION['Roll No.'];?></h4>

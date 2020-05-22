@@ -47,27 +47,12 @@ if($length != 10)
 
     	if (mysqli_query($conn, $sql))
     	{
-    	    $_SESSION['Active'] = 1;
             $_SESSION['fac_logged_in'] = true;
-
-            $_SESSION['picStatus'] = 0;
-            $_SESSION['picExt'] = png;
 
             $sql = "SELECT * FROM faculty WHERE fusername='$user'";
             $result = mysqli_query($conn, $sql);
             $User = $result->fetch_assoc();
             $_SESSION['id'] = $User['fid'];
-
-            if($_SESSION['picStatus'] == 0)
-            {
-                $_SESSION['picId'] = 0;
-                $_SESSION['picName'] = "profile0.png";
-            }
-            else
-            {
-                $_SESSION['picId'] = $_SESSION['id'];
-                $_SESSION['picName'] = "profile".$_SESSION['picId'].".".$_SESSION['picExt'];
-            }
 
             $message_body = "
             Hello '.$user.',

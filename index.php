@@ -1,3 +1,17 @@
+<?php
+	session_start();
+	if(isset($_SESSION['fac_logged_in']) AND $_SESSION['fac_logged_in'] == true OR isset($_SESSION['stu_logged_in']) AND $_SESSION['stu_logged_in'] == true)
+	{
+		if(isset($_SESSION['fac_logged_in']) AND $_SESSION['fac_logged_in'] == true)
+		{
+			header("Location: ../Login/FacultyProfile.php");
+		}
+		if(isset($_SESSION['stu_logged_in']) AND $_SESSION['stu_logged_in'] == true)
+		{
+			header("Location: ../Login/StudentProfile.php");
+		}
+	}
+?>
 <!DOCTYPE html>
 <html>
 

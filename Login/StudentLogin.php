@@ -30,21 +30,7 @@
             $_SESSION['Roll No.'] = $User['broll'];
             $_SESSION['Mobile'] = $User['bmobile'];
             $_SESSION['Course'] = $User['bcourse'];
-            $_SESSION['Active'] = $User['bactive'];
-            $_SESSION['picStatus'] = $User['picStatus'];
-            $_SESSION['picExt'] = $User['picExt'];
             $_SESSION['stu_logged_in'] = true;
-
-            if($_SESSION['picStatus'] == 0)
-            {
-                $_SESSION['picId'] = 0;
-                $_SESSION['picName'] = "profile0.png";
-            }
-            else
-            {
-                $_SESSION['picId'] = $_SESSION['id'];
-                $_SESSION['picName'] = "profile".$_SESSION['picId'].".".$_SESSION['picExt'];
-            }
 
             header("location: StudentProfile.php");
         }

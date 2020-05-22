@@ -15,9 +15,10 @@
 		$bookName = dataFilter($_POST['bookname']);
 		$course = dataFilter($_POST['course']);
 		$bookDesc = $_POST['bookdesc'];
+		$fuploader = $_SESSION['Email'];
 
-		$sql = "INSERT INTO fbook (bookname, bcourse, bookdesc)
-			   VALUES ('$bookName', '$course', '$bookDesc')";
+		$sql = "INSERT INTO fbook (bookname, bcourse, bookdesc, fuploader)
+			   VALUES ('$bookName', '$course', '$bookDesc', '$fuploader')";
 		$result = mysqli_query($conn, $sql);
 		if(!$result)
 		{
@@ -28,51 +29,36 @@
 			$_SESSION['message'] = "Successful !!!";
 		}
 
-		$pdf = $_FILES['bookPdf'];
-		$pdfName = $pdf['name'];
-		$pdfTmpName = $pdf['tmp_name'];
-		$pdfSize = $pdf['size'];
-		$pdfError = $pdf['error'];
-		$pdfType = $pdf['type'];
-		$pdfExt = explode('.', $pdfName);
-		$pdfActualExt = strtolower(end($pdfExt));
-		$allowed = array('pdf','doc','docx');
+		$doc = $_FILES['bookDoc'];
+		$docName = $doc['name'];
+		$docTmpName = $doc['tmp_name'];
+		$docError = $doc['error'];
+		$docExt = explode('.', $docName);
+		$docActualExt = strtolower(end($docExt));
 
-		if(in_array($pdfActualExt, $allowed))
+		if($docError === 0)
 		{
-			if($pdfError === 0)
+			$_SESSION['docId'] = $_SESSION['id'];
+			$docNameNew = $bookName.$_SESSION['docId'].".".$docActualExt ;
+			$bookDestination = 'books/doc/'.$docNameNew;
+			move_uploaded_file($docTmpName, $bookDestination);
+
+			$sql = "UPDATE fbook SET docStatus=1, bdoc='$docNameNew' WHERE bookname='$bookName';";
+
+			$result = mysqli_query($conn, $sql);
+			if($result)
 			{
-				$_SESSION['pdfId'] = $_SESSION['id'];
-				$pdfNameNew = $bookName.$_SESSION['pdfId'].".".$pdfActualExt ;
-				$_SESSION['bookPdfExt'] = $pdfActualExt;
-				$bookDestination = "books/pdf/".$pdfNameNew;
-				move_uploaded_file($pdfTmpName, $bookDestination);
-				$id = $_SESSION['id'];
-
-				$sql = "UPDATE fbook SET pdfStatus=1, bpdf='$pdfNameNew' WHERE bookname='$bookName';";
-
-				$result = mysqli_query($conn, $sql);
-				if($result)
-				{
-
-					$_SESSION['message'] = "Book Uploaded successfully !!!";
-					header("Location: bookMenu.php");
-				}
-				else
-				{
-					$_SESSION['message'] = "There was an error in uploading your Book! Please Try again!";
-					header("Location: Login/error.php");
-				}
+				header("Location: bookMenu.php");
 			}
 			else
 			{
-				$_SESSION['message'] = "There was an error in uploading your Book! Please Try again!";
+				$_SESSION['message'] = "There was an error in uploading the Book! Please Try again!";
 				header("Location: Login/error.php");
 			}
 		}
 		else
 		{
-			$_SESSION['message'] = "You cannot upload files with this extension!!!";
+			$_SESSION['message'] = "There was an error in uploading your Book! Please Try again!";
 			header("Location: Login/error.php");
 		}
 	}
@@ -98,7 +84,6 @@
 		<link href="bootstrap\css\bootstrap.min.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="bootstrap\js\bootstrap.min.js"></script>
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="login.css"/>
 		<link rel="stylesheet" type="text/css" href="indexFooter.css">
 		<script src="js/jquery.min.js"></script>
@@ -122,7 +107,7 @@
 					<form method="POST" action="UploadBooks.php" enctype="multipart/form-data">
 						<h2>Enter the BOOK Information here..!!</h2>
 						<br>
-						<input type="file" name="bookPdf" style="background-color:white;color: black;"></input>
+						<input type="file" name="bookDoc" style="background-color:white;color: black;"></input>
 						<br>
 						<div class="row">
 						<div class="col-sm-6">

@@ -33,8 +33,7 @@ CREATE TABLE `student` (
   `bhash` varchar(100) NOT NULL,
   `bemail` varchar(100) NOT NULL,
   `bmobile` varchar(100) NOT NULL,
-  `bcourse` text NOT NULL,
-  `bactive` int(100) NOT NULL DEFAULT '1' /* temporary */
+  `bcourse` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -50,10 +49,7 @@ CREATE TABLE `faculty` (
   `fpassword` varchar(255) NOT NULL,
   `fhash` varchar(255) NOT NULL,
   `femail` varchar(255) NOT NULL,
-  `fmobile` varchar(255) NOT NULL,
-  `factive` int(255) NOT NULL DEFAULT '1',
-  `picExt` varchar(255) NOT NULL DEFAULT 'png',
-  `picStatus` int(10) NOT NULL DEFAULT '0'
+  `fmobile` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -66,9 +62,10 @@ CREATE TABLE `fbook` (
   `pid` int(255) NOT NULL,
   `bookname` varchar(255) NOT NULL,
   `bcourse` varchar(255) NOT NULL,
+  `fuploader` varchar(255) NOT NULL,
   `bookdesc` varchar(255) NOT NULL,
-  `bpdf` varchar(255) NOT NULL DEFAULT 'blank.pdf',
-  `pdfStatus` int(10) NOT NULL DEFAULT '0'
+  `bdoc` varchar(255) NOT NULL DEFAULT 'blank.pdf',
+  `docStatus` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
