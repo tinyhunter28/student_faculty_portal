@@ -29,22 +29,7 @@
             $_SESSION['Name'] = $User['fname'];
             $_SESSION['Username'] = $User['fusername'];
             $_SESSION['Mobile'] = $User['fmobile'];
-            $_SESSION['Addr'] = $User['faddress'];
-            $_SESSION['Active'] = $User['factive'];
-            $_SESSION['picStatus'] = $User['picStatus'];
-            $_SESSION['picExt'] = $User['picExt'];
-            $_SESSION['logged_in'] = true;
-
-            if($_SESSION['picStatus'] == 0)
-            {
-                $_SESSION['picId'] = 0;
-                $_SESSION['picName'] = "profile0.png";
-            }
-            else
-            {
-                $_SESSION['picId'] = $_SESSION['id'];
-                $_SESSION['picName'] = "profile".$_SESSION['picId'].".".$_SESSION['picExt'];
-            }
+            $_SESSION['fac_logged_in'] = true;
 
             header("location: FacultyProfile.php");
         }

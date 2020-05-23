@@ -3,16 +3,18 @@
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400");
 
 /*
-	Interphase by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+
+    #cecece
+    #e7d403
+    #886363
+    #000161
 */
+
+
 
 /* Basic */
 
-	body {
-		background: #fff;
-	}
+ 
 
 	body, input, select, textarea {
 		color: #444;
@@ -45,10 +47,10 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #666;
-		font-weight: 300;
-		line-height: 1em;
-		margin: 0 0 1em 0;
+		#color: #666;
+		#font-weight: 300;
+		#line-height: 1em;
+		#margin: 0 0 1em 0;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -57,8 +59,8 @@
 		}
 
 	h2 {
-		font-size: 1.75em;
-		line-height: 1.5em;
+		#font-size: 1.75em;
+		#line-height: 1.5em;
 	}
 
 	h3 {
@@ -725,7 +727,7 @@
 		-o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #3ba666;
+		background-color: #0f2317e0;
 		border-radius: 4px;
 		border: 0;
 		color: #ffffff !important;
@@ -955,7 +957,7 @@
 				right: 0;
 			}
 
-/* Banner */
+/* Banner *
 
 	#banner {
 		background: url("images/overlay.png"), url("../images/banner.jpg");

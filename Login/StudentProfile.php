@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if ( $_SESSION['logged_in'] != 1 )
+   if ( $_SESSION['stu_logged_in'] != true )
     {
       $_SESSION['message'] = "You must log in before viewing your profile page!";
       header("location: error.php");
@@ -13,7 +13,7 @@
        $name =  $_SESSION['Name'];
        $user =  $_SESSION['Roll No.'];
        $mobile = $_SESSION['Mobile'];
-       $active = $_SESSION['Active'];
+	   $loginProfile = "My Profile: ". $_SESSION['Roll No.'];
     }
 ?>
 
@@ -30,25 +30,18 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<script src="../js/jquery.min.js"></script>
-		<script src="../js/skel.min.js"></script>
-		<script src="../js/skel-layers.min.js"></script>
-		<script src="../js/init.js"></script>
-		<link rel="stylesheet" href="../css/skel.css" />
-		<link rel="stylesheet" href="../css/style.css" />
-		<link rel="stylesheet" href="../css/style-xlarge.css" />
+		<link href="../css/student-profile.css" rel="stylesheet">
     </head>
 
     <body>
-        <?php
+			
+			<?php
             require 'StudentMenu.php';
-        ?>
-
-        <section id="banner_stu" class="wrapper">
-            <div class="container">
-                <header class="major">
-                    <h2>Welcome to Student Portal</h2>
-                </header>
-                <p>
+			?>
+			
+			<h2 class="view">Welcome to Student Portal</h2>
+			
+			<p>
                 <?php
                     if ( isset($_SESSION['message']) )
                     {
@@ -56,30 +49,17 @@
                         unset( $_SESSION['message'] );
                     }
                 ?>
-                </p>
-
-                <?php
-                    if ( !$active )
-                    {
-                        echo
-                        "<div>
-                            Account is not verified! Please confirm your email by clicking
-                            on the email link!
-                        </div>";
-                    }
-                ?>
-                  <h2><?php echo $name; ?></h2>
-                  <p><?= $email ?></p>
-
-                    <div class="row uniform">
-                        <div class="6u 12u$(xsmall)">
-                            <a href=../StudentProfileView.php class="button special">My Profile</a>
-                        </div>
-                        <div class="6u 12u$(xsmall)">
-                            <a href="logout.php" class="button special">LOG OUT</a>
-                        </div>
-                    </div>
-
-
+			</p>
+				
+			<span style="display:block; height:250px;"></span>
+			<h2 class="">Hello, <?php echo $name; ?> ,how u doin'?</h2>
+			<span style="display:block; height:60px;"></span>
+			<p style="font-size:28px; color:white; background:black; opacity:0.6;"><? =$email ?></p>
+            
+			<button onclick="location.href='../StudentProfileView.php'" type="button">My Profile</button>
+			<button onclick="location.href='logout.php'" type="button">Log Out</button>
+			
+			<!--HERE -->
+			<script src="../css/template.js"></script>
     </body>
 </html>

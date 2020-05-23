@@ -1,6 +1,7 @@
 <?php
 	session_start();
-		$_SESSION['logged_in'] = false;
+		$_SESSION['stu_logged_in'] = false;
+		$_SESSION['fac_logged_in'] = false;
 	session_unset();
 	session_destroy();
 ?>
@@ -12,46 +13,50 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<script src="../js/jquery.min.js"></script>
+		
 		<link href="../bootstrap\css\bootstrap.min.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="../bootstrap\js\bootstrap.min.js"></script>
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="../js/jquery.min.js"></script>
-		<script src="../js/skel.min.js"></script>
-		<script src="../js/skel-layers.min.js"></script>
-		<script src="../js/init.js"></script>
-		<link rel="stylesheet" href="../css/skel.css" />
-		<link rel="stylesheet" href="../css/style.css" />
-		<link rel="stylesheet" href="../css/style-xlarge.css" />
+		
+		<link href="../css/template.css" rel="stylesheet">
+		
+		<style>
+			button
+			{
+				border-radius: 20px;
+				border: 1px solid #FF4B2B;
+				background-color: #FF4B2B;
+				color: #FFFFFF;
+				font-size: 21px;
+				font-weight: bold;
+				padding: 12px 45px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				transition: transform 80ms ease-in;
+			}
+		</style>
     </head>
 
 	<body>
-	   <?php
+		<?php
             require 'LogOutMenu.php';
         ?>
-	    <section id="banner">
-			<div class="container">
-                <header class="major">
-                    <h2>Thanks for visiting !!!</h2>
-					<center>
-                    	<p>You have been succesfully logged out !!!</p>
-                        <div class="6u 12u$(xsmall)">
-							<br />
-                            <a href="../index.php" class="button special">HOME</a>
-                        </div>
-                    </center>
-                </header>
-                </div>
-            </div>
-        </section>
+		
+		<div style="color: white; text-align: center; font-size: 36px;">
+			<h2>Thanks for visiting !!!</h2>
 
-    		<script src="../assets/js/jquery.min.js"></script>
-            <script src="../assets/js/jquery.scrolly.min.js"></script>
-            <script src="../assets/js/jquery.scrollex.min.js"></script>
-            <script src="../assets/js/skel.min.js"></script>
-            <script src="../assets/js/util.js"></script>
-            <script src="../assets/js/main.js"></script>
+			<center>
+			<p>You have been succesfully logged out !!!</p>
+
+			<div class="6u 12u$(xsmall)">
+				<br>
+				<button type="button"><a style="text-decoration:none; background:none;" href="../index.php" class="button special">HOME</a></button>
+			</div>
+			</center>
+		</div>
 	</body>
 </html>

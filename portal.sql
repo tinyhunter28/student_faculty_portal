@@ -33,8 +33,7 @@ CREATE TABLE `student` (
   `bhash` varchar(100) NOT NULL,
   `bemail` varchar(100) NOT NULL,
   `bmobile` varchar(100) NOT NULL,
-  `bcourse` text NOT NULL,
-  `bactive` int(100) NOT NULL DEFAULT '1' /* temporary */
+  `bcourse` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -50,10 +49,7 @@ CREATE TABLE `faculty` (
   `fpassword` varchar(255) NOT NULL,
   `fhash` varchar(255) NOT NULL,
   `femail` varchar(255) NOT NULL,
-  `fmobile` varchar(255) NOT NULL,
-  `factive` int(255) NOT NULL DEFAULT '1',
-  `picExt` varchar(255) NOT NULL DEFAULT 'png',
-  `picStatus` int(10) NOT NULL DEFAULT '0'
+  `fmobile` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -66,9 +62,23 @@ CREATE TABLE `fbook` (
   `pid` int(255) NOT NULL,
   `bookname` varchar(255) NOT NULL,
   `bcourse` varchar(255) NOT NULL,
+  `fuploader` varchar(255) NOT NULL,
   `bookdesc` varchar(255) NOT NULL,
-  `bpdf` varchar(255) NOT NULL DEFAULT 'blank.pdf',
-  `pdfStatus` int(10) NOT NULL DEFAULT '0'
+  `bdoc` varchar(255) NOT NULL DEFAULT 'blank.pdf',
+  `docStatus` int(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `fbook`
+--
+
+CREATE TABLE `fnotice` (
+  `pid` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `fuploader` varchar(255) NOT NULL,
+  `noticedesc` varchar(255) NOT NULL,
+  `bdoc` varchar(255) NOT NULL DEFAULT 'blank.pdf',
+  `docStatus` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -92,6 +102,12 @@ ALTER TABLE `faculty`
 --
 ALTER TABLE `fbook`
   ADD PRIMARY KEY (`pid`);
+  
+--
+-- Indexes for table `fbook`
+--
+ALTER TABLE `fnotice`
+  ADD PRIMARY KEY (`pid`);
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -105,7 +121,13 @@ ALTER TABLE `faculty`
   MODIFY `fid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
   
 --
--- AUTO_INCREMENT for table `fproduct`
+-- AUTO_INCREMENT for table `fbook`
 --
 ALTER TABLE `fbook`
+  MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+--
+-- AUTO_INCREMENT for table `fnotice`
+--
+ALTER TABLE `fnotice`
   MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
