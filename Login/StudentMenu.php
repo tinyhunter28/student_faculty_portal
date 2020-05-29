@@ -37,7 +37,8 @@
 					<li><a href="<?= $link; ?>"><?php echo" ". $loginProfile; ?></a></li>
 					<li><a href="../bookMenu.php">Book Menu</a></li>
 					<li><a href="../NoticeMenu.php">Notice Menu</a></li>
-					<li><a href="#">Reports</a></li>
+					<li><a href="../miscMenu.php">Attendence/Marksheet</a></li>
+					<li><a href="../query.php">Send Query</a></li>
 				</ul>
 				</nav>
 			</div>

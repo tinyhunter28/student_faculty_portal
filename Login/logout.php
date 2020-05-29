@@ -47,16 +47,20 @@
         ?>
 		
 		<div style="color: white; text-align: center; font-size: 36px;">
-			<h2>Thanks for visiting !!!</h2>
-
-			<center>
-			<p>You have been succesfully logged out !!!</p>
-
-			<div class="6u 12u$(xsmall)">
+				<h2>Thanks for visiting !!!</h2>
+				<center>
+				<?php
+				if(isset($_SESSION['message']) AND !empty($_SESSION['message']))
+				{
+					echo $_SESSION['message'];
+				}
+				?>
+				<p>You have been succesfully logged out !!!</p>
+				<div class="6u 12u$(xsmall)">
 				<br>
 				<button type="button"><a style="text-decoration:none; background:none;" href="../index.php" class="button special">HOME</a></button>
-			</div>
-			</center>
+				</div>
+				</center>
 		</div>
 	</body>
 </html>

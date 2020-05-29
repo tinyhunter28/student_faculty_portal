@@ -10,12 +10,6 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `database`
 --
@@ -81,7 +75,33 @@ CREATE TABLE `fnotice` (
   `docStatus` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Table structure for table `attendance & marksheet`
+--
 
+CREATE TABLE `fmiscell` (
+  `pid` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `bcourse` varchar(255) NOT NULL,
+  `fuploader` varchar(255) NOT NULL,
+  `filedesc` varchar(255) NOT NULL,
+  `filetype` varchar(255) NOT NULL,
+  `bdoc` varchar(255) NOT NULL DEFAULT 'blank.pdf',
+  `docStatus` int(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `query`
+--
+
+CREATE TABLE `query` (
+  `pid` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `broll` varchar(255) NOT NULL,
+  `bcourse` varchar(255) NOT NULL,
+  `faculty` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for table `student`
@@ -104,9 +124,21 @@ ALTER TABLE `fbook`
   ADD PRIMARY KEY (`pid`);
   
 --
--- Indexes for table `fbook`
+-- Indexes for table `fnotice`
 --
 ALTER TABLE `fnotice`
+  ADD PRIMARY KEY (`pid`);
+  
+--
+-- Indexes for table `attendance & marksheet`
+--
+ALTER TABLE `fmiscell`
+  ADD PRIMARY KEY (`pid`);
+  
+--
+-- Indexes for table `query`
+--
+ALTER TABLE `query`
   ADD PRIMARY KEY (`pid`);
 
 --
@@ -130,4 +162,16 @@ ALTER TABLE `fbook`
 -- AUTO_INCREMENT for table `fnotice`
 --
 ALTER TABLE `fnotice`
+  MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+--
+-- AUTO_INCREMENT for table `attendance & marksheet`
+--
+ALTER TABLE `fmiscell`
+  MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+--
+-- AUTO_INCREMENT for table `query`
+--
+ALTER TABLE `query`
   MODIFY `pid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;

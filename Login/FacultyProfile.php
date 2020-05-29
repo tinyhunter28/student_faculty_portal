@@ -1,7 +1,7 @@
 <?php
     session_start();
-
-     if ( $_SESSION['fac_logged_in'] != 1 )
+	
+	if ( $_SESSION['fac_logged_in'] != 1 )
     {
       $_SESSION['message'] = "You must log in before viewing your profile page!";
       header("location: error.php");

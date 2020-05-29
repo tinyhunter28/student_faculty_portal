@@ -34,7 +34,7 @@
 <body>
 	
 
-<div class="container" id="container">
+	<div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form method="post" action="Login/FacultySignUp.php">
 			<h1>Sign Up</h1>

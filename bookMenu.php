@@ -48,13 +48,6 @@
 	<body class>
 		<?php
 		require 'Login/FacultyMenu.php';
-		function dataFilter($data)
-		{
-			$data = trim($data);
-			$data = stripslashes($data);
-			$data = htmlspecialchars($data);
-			return $data;
-		}
 		?>
 
 		<!-- One -->
@@ -101,13 +94,6 @@
 	<body class>
 		<?php 
 			require 'Login/StudentMenu.php';
-			function dataFilter($data)
-			{
-				$data = trim($data);
-				$data = stripslashes($data);
-				$data = htmlspecialchars($data);
-				return $data;
-			}
 		?>
 		
 		<!-- One -->

@@ -30,6 +30,9 @@
 					<li><a href="../BookMenu.php">Book Menu</a></li>
 					<li><a href="../UploadNotice.php">Upload Notice</a></li>
 					<li><a href="../NoticeMenu.php">Notice Menu</a></li>
+					<li><a href="../UploadMiscell.php">Upload Attendence/ Marksheet</a></li>
+					<li><a href="../miscMenu.php">Show Attendence/ Marksheet</a></li>
+					<li><a href="../query.php">Show Queries</a></li>
 				</ul>
 			</nav>
 		</div>
