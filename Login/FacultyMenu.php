@@ -14,19 +14,29 @@
 ?>
 
 <!DOCTYPE html>
-			<header id="header">
-				<h1><a href="../Login/FacultyProfile.php">Student Faculty Portal</a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../Login/FacultyProfile.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-						<li><a href="../UploadBooks.php"> Upload Books</a></li>
-						<li><a href="../bookMenu.php"> Book Menu</a></li>
-						<li><a href="<?= $link; ?>"><span class="<?php echo $logo; ?>"></span><?php echo" ". $loginProfile; ?></a></li>
-						<li><a href="../UploadNotice.php"> UploadNotice</a></li>
-						<li><a href="../Report.php"> Reports</a></li>
-					</ul>
-				</nav>
-			</header>
+		<html>
+		<body>
+			<header>
+		<div class="menu-toggle" id="hamburger">
+			<i class="fas fa-bars"></i>
+		</div>
+		<div class="overlay"></div>
+		<div class="container">
+			<nav>
+				<h1 class="brand"><a href="/Login/FacultyProfile.php">Student<span>Faculty</span>Portal</a></h1>
+				<ul>
+					<li><a href="../FacultyProfileView.php">Home</a></li>
+					<li><a href="../UploadBooks.php">Upload Books</a></li>
+					<li><a href="../BookMenu.php">Book Menu</a></li>
+					<li><a href="../UploadNotice.php">Upload Notice</a></li>
+					<li><a href="../NoticeMenu.php">Notice Menu</a></li>
+					<li><a href="../UploadMiscell.php">Upload Attendence/ Marksheet</a></li>
+					<li><a href="../miscMenu.php">Show Attendence/ Marksheet</a></li>
+					<li><a href="../query.php">Show Queries</a></li>
+				</ul>
+			</nav>
+		</div>
+		<section class="content-section">
 
 	</body>
 </html>

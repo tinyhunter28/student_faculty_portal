@@ -11,7 +11,6 @@
         $newUname = $_POST['newUname'];
         $newMobile = $_POST['newMobile'];
         $newEmail = $_POST['newEmail'];
-		$newCourse = $_POST['newCourse'];
     }
 
     $sql = "SELECT * FROM faculty WHERE fname='$user'";

@@ -39,10 +39,9 @@
 
                 if($result)
                 {
-					echo "Success";
-                    //$_SESSION['message'] = "Password changed Successfully!";
-                    //header("location: ../Login/success.php");
-                }
+					$_SESSION['message'] = "Password Changed Successfully!! Next time login with new pass!!!";
+                    header("location: ../Login/success.php");
+				}
                 else
                 {
                     $_SESSION['message'] = "Error occurred while changing password<br>Please try again!";
@@ -52,8 +51,8 @@
         }
         else
         {
-            //$_SESSION['message'] = "Invalid current User Credentials!";
-            //header("location: ../Login/error.php");
+            $_SESSION['message'] = "Invalid current User Credentials!";
+            header("location: ../Login/error.php");
         }
     }
 

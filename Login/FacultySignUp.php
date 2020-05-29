@@ -7,12 +7,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$mobile = dataFilter($_POST['mobile']);
 	$user = dataFilter($_POST['uname']);
 	$email = dataFilter($_POST['email']);
-	$pass =	dataFilter(password_hash($_POST['pass'], PASSWORD_BCRYPT));
+	$pass =	dataFilter($_POST['pass']);
+	$cpass = dataFilter($_POST['password']);
 	$hash = dataFilter( md5( rand(0,1000) ) );
 
 	$_SESSION['Email'] = $email;
     $_SESSION['Name'] = $name;
-    $_SESSION['Password'] = $pass;
     $_SESSION['Username'] = $user;
     $_SESSION['Mobile'] = $mobile;
     $_SESSION['Hash'] = $hash;
@@ -37,11 +37,16 @@ if($length != 10)
     if ($result->num_rows > 0 )
     {
         $_SESSION['message'] = "User with this email already exists!";
-        //echo $_SESSION['message'];
         header("location: error.php");
     }
-    else
+    else if($pass != $cpass)
+	{
+		$_SESSION['message'] = "Password don't match!!!";
+        header("location: error.php");
+	}
+	else
     {
+		$pass =	dataFilter(password_hash($_POST['pass'], PASSWORD_BCRYPT));
     	$sql = "INSERT INTO faculty (fname, fusername, fpassword, fhash, fmobile, femail)
     			VALUES ('$name','$user','$pass','$hash','$mobile','$email')";
 

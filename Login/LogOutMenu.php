@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-			<header id="header">
-				<h1><a href="../index.php">Student Faculty Portal</a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-					</ul>
-				</nav>
-			</header>
-
-	</body>
-</html>
+			<header>
+		<div class="menu-toggle" id="hamburger">
+			<i class="fas fa-bars"></i>
+		</div>
+		<div class="overlay"></div>
+		<div class="container">
+			<nav>
+				<h1 class="brand"><a href="index.html">Student<span>Faculty</span>Portal</a></h1>
+				<ul>
+					<li><a href="StudentProfile.php">Home</a></li>
+				</ul>
+			</nav>
+		</div>
+	

@@ -31,7 +31,7 @@
         if($newName != NULL AND $newName !='')
 		{
 			$sql = "UPDATE student SET bname='$newName';";
-			
+
 			$result = mysqli_query($conn, $sql);
 
 			if($result)
@@ -39,11 +39,11 @@
 				$_SESSION['Name'] = $newName;
 			}
 		}
-		
+
 		if($newRoll != NULL AND $newRoll !='')
 		{
 			$sql = "UPDATE student SET broll='$newRoll';";
-			
+
 			$result = mysqli_query($conn, $sql);
 
 			if($result)
@@ -51,11 +51,11 @@
 				$_SESSION['Roll No.'] = $newRoll;
 			}
 		}
-		
+
 		if($newMobile != NULL AND $newMobile !='')
 		{
 			$sql = "UPDATE student SET bmobile='$newMobile';";
-			
+
 			$result = mysqli_query($conn, $sql);
 
 			if($result)
@@ -63,11 +63,11 @@
 				$_SESSION['Mobile'] = $newMobile;
 			}
 		}
-		
+
 		if($newEmail != NULL AND $newEmail !='')
 		{
 			$sql = "UPDATE student SET bemail='$newEmail';";
-			
+
 			$result = mysqli_query($conn, $sql);
 
 			if($result)
@@ -75,11 +75,11 @@
 				$_SESSION['Email'] = $newEmail;
 			}
 		}
-		
+
 		if($newCourse != NULL AND $newCourse !='')
 		{
 			$sql = "UPDATE student SET bcourse='$newCourse';";
-			
+
 			$result = mysqli_query($conn, $sql);
 
 			if($result)
@@ -87,7 +87,7 @@
 				$_SESSION['Course'] = $newCourse;
 			}
 		}
-		
+
 		$result = mysqli_query($conn, $sql);
 
         if($result)
@@ -99,7 +99,7 @@
 			$_SESSION['message'] = "Invalid";
 			header("location: ../Login/error.php");
 		}
-		
+
     }
 
     function dataFilter($data)

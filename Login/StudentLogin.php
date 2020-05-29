@@ -30,7 +30,7 @@
             $_SESSION['Roll No.'] = $User['broll'];
             $_SESSION['Mobile'] = $User['bmobile'];
             $_SESSION['Course'] = $User['bcourse'];
-            $_SESSION['stu_logged_in'] = true;
+			$_SESSION['stu_logged_in'] = true;
 
             header("location: StudentProfile.php");
         }

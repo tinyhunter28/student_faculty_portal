@@ -7,13 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$mobile = dataFilter($_POST['mobile']);
 	$roll = dataFilter($_POST['roll']);
 	$email = dataFilter($_POST['email']);
-	$pass =	dataFilter(password_hash($_POST['pass'], PASSWORD_BCRYPT));
+	$pass =	dataFilter($_POST['pass']);
+	$cpass = dataFilter($_POST['password']);
 	$hash = dataFilter( md5( rand(0,1000) ) );
     $course = dataFilter($_POST['course']);
 
 	$_SESSION['Email'] = $email;
     $_SESSION['Name'] = $name;
-    $_SESSION['Password'] = $pass;
     $_SESSION['Roll No.'] = $roll;
     $_SESSION['Mobile'] = $mobile;
     $_SESSION['Hash'] = $hash;
@@ -41,8 +41,14 @@ if($length != 10)
         $_SESSION['message'] = "User with this email already exists!";
         header("location: error.php");
     }
+	else if($pass != $cpass)
+	{
+		$_SESSION['message'] = "Password don't match!!!";
+        header("location: error.php");
+	}
     else
     {
+		$pass =	dataFilter(password_hash($_POST['pass'], PASSWORD_BCRYPT));
     	$sql = "INSERT INTO student (bname, broll, bpassword, bhash, bmobile, bemail, bcourse)
     			VALUES ('$name','$roll','$pass','$hash','$mobile','$email','$course')";
 
@@ -54,6 +60,7 @@ if($length != 10)
             $result = mysqli_query($conn, $sql);
             $User = $result->fetch_assoc();
             $_SESSION['id'] = $User['bid'];
+
 			
             $message_body = "
             Hello '.$user.',
