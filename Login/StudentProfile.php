@@ -23,13 +23,14 @@
         <title>Student Portal</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="../js/jquery.min.js"></script>
         <link href="../bootstrap\css\bootstrap.min.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="../bootstrap\js\bootstrap.min.js"></script>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<script src="../js/jquery.min.js"></script>
+		<link href="../css/template.css" rel="stylesheet">
 		<link href="../css/student-profile.css" rel="stylesheet">
     </head>
 
@@ -52,7 +53,7 @@
 			</p>
 				
 			<span style="display:block; height:250px;"></span>
-			<h2 class="">Hello, <?php echo $name; ?> ,how u doin'?</h2>
+			<h2 style="top: 65%;position: absolute;left: 40%;">Hello, <?php echo $name; ?> ,how u doin'?</h2>
 			<span style="display:block; height:60px;"></span>
 			<p style="font-size:28px; color:white; background:black; opacity:0.6;"><? =$email ?></p>
             

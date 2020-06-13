@@ -86,7 +86,7 @@
 		?>
 		
 		<!-- One -->
-		<h2 style="color: white;text-align: center;font-size: 40px;">Submitted Queries:</h2>
+		<h2 style="margin-top:5%; color: white;text-align: center;font-size: 40px;">Submitted Queries:</h2>
 		
 		<?php
 			$faculty = $_SESSION['Name'];
@@ -139,8 +139,8 @@
 				<br>
 				<input type="text" name="message" id="message" value="" placeholder="Enter Your Message here!!!"/>
 				<br>
-				Send To:
-				<select id="faculty" name="faculty"  required style="margin: 7px 350px;background-color: red;font-weight: 800;">
+				<label style="margin-top: 10%;margin-left: 50%;position: absolute;"for="faculty">Send To:</label>
+				<select id="faculty" name="faculty"  required style="position: absolute;top: 70%;margin: 8px 350px;background-color: red;font-weight: 800;">
 				<?php 
 					$sql = "SELECT * FROM faculty WHERE 1";
 					$result = mysqli_query($conn, $sql);
@@ -151,7 +151,7 @@
 					endwhile;
 				?>
 				</select>
-				<button type="submit" style="font-size: 22px;margin: 10px 300px;}">Submit</button>
+				<button type="submit" style="font-size: 22px;margin: 10px 300px;margin-top: 30%;}">Submit</button>
 			</div>
 		</div>
 		</form>

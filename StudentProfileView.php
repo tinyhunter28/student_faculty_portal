@@ -43,7 +43,8 @@
 			margin: 10px 20px 0px 30px;
 			}
 	
-			input {	
+			input {
+			color : #1e1a49;
 			background-color: #cecece;
 			border: none;
 			padding: 12px 15px;
@@ -117,7 +118,7 @@
 		
 		<!--Student Password Change-->
 		<div id="id01" class="modal">
-			<form class="modal-container" action="changeStudentPass.php" method='POST'>
+			<form class="modal-container_1" style="min-height: 380px; action="changeStudentPass.php" method='POST'>
 			
 				<div class="imgcontainer">
 					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -130,7 +131,7 @@
 						<input type="password" name="newPass" id="newPass" value="" placeholder="New Password"  required />
 						<input type="password" name="conNewPass" id="conNewPass" value="" placeholder="Confirm New Password"  required />
 						<center>
-						<button><input type="submit" value="submit" style="background:none;" /></button>
+						<input type="submit" value="Submit"/>
 						</center>
 					</form>
 				</div>
@@ -141,7 +142,7 @@
 		<!-- Edit Profile -->
 
 		<div id="id02" class="modal">
-			<form class="modal-content animate" action="StudentprofileEdit.php" method='POST'>
+			<form class="modal-container_1" action="StudentprofileEdit.php" method='POST'>
 			
 				<div class="imgcontainer">
 				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>

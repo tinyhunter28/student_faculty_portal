@@ -91,6 +91,16 @@
 		<link href="css/stdnt-pro-view.css" rel="stylesheet">
 		
 		<style>
+		.input_box
+		{
+			background-color: #a22525;
+			border: none;
+			padding: 12px 6px;
+			margin: 7px 198px;
+			z-index: 2;
+			width: 50%;
+		}
+		
 		input
 		{
 			background-color: #a22525;
@@ -98,7 +108,7 @@
 			padding: 12px 6px;
 			margin: 7px 199px;
 			z-index: 2;
-			width: 100%;
+			width: 103%;
 		}
 		</style>
 	</head>
@@ -110,7 +120,7 @@
 		<form class="modal-container" method="POST" action="UploadMiscell.php" enctype="multipart/form-data" style="background: black; text-align: center;color: white;opacity: 0.6;">
 		<h2>Enter the File Information here..!!</h2>
 		<br>
-		<input type="file" name="fileDoc" ></input>
+		<input class="input_box" type="file" name="fileDoc" ></input>
 		<br>
 		<div class="row">
 			<div class="col-sm-6">
@@ -118,7 +128,7 @@
 				<br>
 				<input type="text" name="filedesc" id="filedesc" value="" placeholder="File Description" />
 				<br>
-				<select id="filetype" name="filetype"  required style="margin: 7px 350px;background-color: red;font-weight: 800;">
+				<select id="filetype" name="filetype"  required style="margin: 7px 300px;background-color: red;font-weight: 800;">
 					<option value="Attendence">Attendence</option>
 					<option value="Marksheet">Marksheet</option>
 				</select>

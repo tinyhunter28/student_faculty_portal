@@ -24,7 +24,6 @@
         <script src="bootstrap\js\bootstrap.min.js"></script>
         <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="login.css"/>
 		<link href="css/template.css" rel="stylesheet">
 		<link href="css/stdnt-pro-view.css" rel="stylesheet">
 		<link href="css/student-profile.css" rel="stylesheet">
@@ -86,7 +85,7 @@
 		<!-- Change Password -->
 		
 		<div id="id01" class="modal">
-			<form class="modal-container" action="changeFacultyPass.php" method='POST'>
+			<form class="modal-container_1" style="min-height: 380px;"action="changeFacultyPass.php" method='POST'>
 				<div class="imgcontainer">
 					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 				</div>
@@ -98,7 +97,7 @@
 						<input type="password" name="newPass" id="newPass" value="" placeholder="New Password"  required />
 						<input type="password" name="conNewPass" id="conNewPass" value="" placeholder="Confirm New Password"  required />
 						<center>
-						<button><input type="submit" value="submit" style="background:none;"/></button>
+						<input type="submit" value="Submit"/>
 						</center>
 					</form>
 				</div>
@@ -108,7 +107,7 @@
         <!-- Edit Profile -->
 
 		<div id="id02" class="modal">
-			<form class="modal-content animate" action="FacultyprofileEdit.php" method='POST'>
+			<form class="modal-container_1" action="FacultyprofileEdit.php" method='POST'>
 				<div class="imgcontainer">
 					<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
 				</div>
@@ -119,7 +118,7 @@
 						<input type="text" name="newName" id="newName" value="" placeholder=" New Name"/>
 						<input type="text" name="newUname" id="newUname" value="" placeholder=" New Username" />
 						<input type="text" name="newMobile" id="newMobile" value="" placeholder=" New Mobile Number" />
-						<input type="email" name="newEmail" id="newEmail" value="" placeholder="New Email" />
+						<input type="email" name="newEmail" id="newEmail" value="" placeholder=" New Email" />
 						<center>
 						<input type="submit" value="Submit" />
 						</center>

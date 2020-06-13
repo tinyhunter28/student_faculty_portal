@@ -12,16 +12,10 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 	<head>
-		<meta charset="UTF-8">	
-		<title>Student Faculty Portal</title>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-		<link href="../css/template.css" rel="stylesheet">
-		<link href="../css/student-profile.css" rel="stylesheet">
+	<link href="../css/dropdown.css" type="text/css" rel="stylesheet">
 	</head>
-
 	<body>
 		<!--Header Template-->
 		<header>
@@ -30,8 +24,10 @@
 			</div>
 			<div class="overlay"></div>
 			<div class="container">
-				<nav>
+				<nav class="nav_1">
 				<h1 class="brand"><a href="../Login/StudentProfile.php">Student<span>Faculty</span>Portal</a></h1>
+				</nav>
+				<nav>
 				<ul>
 					<li><a href="../Login/StudentProfile.php">Home</a></li>
 					<li><a href="<?= $link; ?>"><?php echo" ". $loginProfile; ?></a></li>
@@ -42,6 +38,7 @@
 				</ul>
 				</nav>
 			</div>
-	
-	<!--Put YOur COntent After This -->
-	<section class="content-section">
+		<!--Put YOur COntent After This -->
+		<section class="content-section">
+	</body>
+</html>

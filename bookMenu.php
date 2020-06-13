@@ -18,29 +18,9 @@
         <script src="bootstrap\js\bootstrap.min.js"></script>
 		
 		<link href="css/template.css" rel="stylesheet">
-		
+		<link href="css/table.css" rel="stylesheet">
 		
 	</head>
-	<style>
-		table, th, td 
-		{
-			color: white;
-			border: 3px solid #693c3c;
-			border-collapse: collapse;
-			position: unset;
-			background: black;
-			width: 40%;
-			/* height: 50%; */
-			margin-left: auto;
-			text-overflow: ellipsis;
-			margin-right: auto;
-		}
-		th, td
-		{
-			padding: 15px;
-			text-align: left;
-		}
-	</style>
 	
 	<?php
 	if(isset($_SESSION['fac_logged_in']) AND $_SESSION['fac_logged_in'] == true) {
@@ -52,7 +32,7 @@
 
 		<!-- One -->
 			
-		<h2 style="color:white;text-align:center;font-size:40px;">Welcome to Book Menu</h2>
+		<h2 style="margin-top:5%;color:white;text-align:center;font-size:40px;">Welcome to Book Menu</h2>
 		
 		<?php
 			$uploader = $_SESSION['Email'];
@@ -97,7 +77,7 @@
 		?>
 		
 		<!-- One -->
-		<h2 style="color: white;text-align: center;font-size: 40px;">Welcome to Book Menu</h2>
+		<h2 style="margin-top:5%;color: white;text-align: center;font-size: 40px;">Welcome to Book Menu</h2>
 		
 		<?php
 			$course = $_SESSION['Course'];
