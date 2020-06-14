@@ -30,7 +30,7 @@
 
         if($newName != NULL AND $newName !='')
 		{
-			$sql = "UPDATE student SET bname='$newName';";
+			$sql = "UPDATE student SET bname='$newName' WHERE broll='$user';";
 
 			$result = mysqli_query($conn, $sql);
 
@@ -42,7 +42,7 @@
 
 		if($newRoll != NULL AND $newRoll !='')
 		{
-			$sql = "UPDATE student SET broll='$newRoll';";
+			$sql = "UPDATE student SET broll='$newRoll' WHERE broll='$user';";
 
 			$result = mysqli_query($conn, $sql);
 
@@ -54,7 +54,7 @@
 
 		if($newMobile != NULL AND $newMobile !='')
 		{
-			$sql = "UPDATE student SET bmobile='$newMobile';";
+			$sql = "UPDATE student SET bmobile='$newMobile' WHERE broll='$user';";
 
 			$result = mysqli_query($conn, $sql);
 
@@ -66,7 +66,7 @@
 
 		if($newEmail != NULL AND $newEmail !='')
 		{
-			$sql = "UPDATE student SET bemail='$newEmail';";
+			$sql = "UPDATE student SET bemail='$newEmail' WHERE broll='$user';";
 
 			$result = mysqli_query($conn, $sql);
 
@@ -78,7 +78,7 @@
 
 		if($newCourse != NULL AND $newCourse !='')
 		{
-			$sql = "UPDATE student SET bcourse='$newCourse';";
+			$sql = "UPDATE student SET bcourse='$newCourse' WHERE broll='$user';";
 
 			$result = mysqli_query($conn, $sql);
 

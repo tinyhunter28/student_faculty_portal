@@ -118,7 +118,7 @@
 		
 		<!--Student Password Change-->
 		<div id="id01" class="modal">
-			<form class="modal-container_1" style="min-height: 380px; action="changeStudentPass.php" method='POST'>
+			<form class="modal-container_1" style="min-height: 380px;" action="changeStudentPass.php" method='POST'>
 			
 				<div class="imgcontainer">
 					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>

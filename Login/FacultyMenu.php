@@ -28,13 +28,13 @@
 			</nav>
 			<nav>
 				<ul>
-					<li><a href="../FacultyProfileView.php">Home</a></li>
+					<li><a href="../Login/FacultyProfile.php">Home</a></li>
 					<li><a href="<?= $link; ?>"><?php echo" ". $loginProfile; ?></a></li>
 					<li class="dropdown">
 					<a href="javascript:void(0)" class="dropbtn">Books</a>
 						<div class="dropdown-content">
 						<a href="../UploadBooks.php">Upload Books</a>
-						<a href="../UploadBooks.php">Book Menu</a>
+						<a href="../Bookmenu.php">Book Menu</a>
 						</div>
 					</li>
 					<li class="dropdown">

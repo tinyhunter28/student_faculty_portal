@@ -6,14 +6,14 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        $user = dataFilter($_SESSION['Name']);
+        $user = dataFilter($_SESSION['Username']);
         $newName = $_POST['newName'];
         $newUname = $_POST['newUname'];
         $newMobile = $_POST['newMobile'];
         $newEmail = $_POST['newEmail'];
     }
 
-    $sql = "SELECT * FROM faculty WHERE fname='$user'";
+    $sql = "SELECT * FROM faculty WHERE fusername='$user'";
     $result = mysqli_query($conn, $sql);
     $num_rows = mysqli_num_rows($result);
 
@@ -29,7 +29,7 @@
 
         if($newName != NULL AND $newName !='')
 		{
-			$sql = "UPDATE faculty SET fname='$newName';";
+			$sql = "UPDATE faculty SET fname='$newName' WHERE fusername='$user'";
 			
 			$result = mysqli_query($conn, $sql);
 
@@ -41,7 +41,7 @@
 		
 		if($newUname != NULL AND $newUname !='')
 		{
-			$sql = "UPDATE faculty SET fusername='$newUname';";
+			$sql = "UPDATE faculty SET fusername='$newUname' WHERE fusername='$user'";
 			
 			$result = mysqli_query($conn, $sql);
 
@@ -53,7 +53,7 @@
 		
 		if($newMobile != NULL AND $newMobile !='')
 		{
-			$sql = "UPDATE faculty SET fmobile='$newMobile';";
+			$sql = "UPDATE faculty SET fmobile='$newMobile' WHERE fusername='$user'";
 			
 			$result = mysqli_query($conn, $sql);
 
@@ -65,7 +65,7 @@
 		
 		if($newEmail != NULL AND $newEmail !='')
 		{
-			$sql = "UPDATE faculty SET femail='$newEmail';";
+			$sql = "UPDATE faculty SET femail='$newEmail' WHERE fusername='$user'";
 			
 			$result = mysqli_query($conn, $sql);
 

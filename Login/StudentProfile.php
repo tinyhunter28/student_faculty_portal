@@ -53,14 +53,15 @@
 			</p>
 				
 			<span style="display:block; height:250px;"></span>
-			<h2 style="top: 65%;position: absolute;left: 40%;">Hello, <?php echo $name; ?> ,how u doin'?</h2>
+			<center style="top: -100px;position: relative;">
+			<h2>Hello, <?php echo $name; ?> ,how u doin'?</h2>
+			</center>
 			<span style="display:block; height:60px;"></span>
-			<p style="font-size:28px; color:white; background:black; opacity:0.6;"><? =$email ?></p>
             
 			<button onclick="location.href='../StudentProfileView.php'" type="button">My Profile</button>
 			<button onclick="location.href='logout.php'" type="button">Log Out</button>
 			
 			<!--HERE -->
-			<script src="../css/template.js"></script>
+			<script src="../js/template.js"></script>
     </body>
 </html>

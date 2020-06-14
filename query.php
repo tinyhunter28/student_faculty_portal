@@ -46,6 +46,7 @@
 		<link href="css/template.css" rel="stylesheet"> 
 		<link href="css/book-view.css" rel="stylesheet">
 		<link href="css/stdnt-pro-view.css" rel="stylesheet">
+		<link href="css/table.css" rel="stylesheet">
 		
 		<style>
 		input
@@ -56,24 +57,6 @@
 			margin: 7px 199px;
 			z-index: 2;
 			width: 100%;
-		}
-		table, th, td 
-		{
-			color: white;
-			border: 3px solid #693c3c;
-			border-collapse: collapse;
-			position: unset;
-			background: black;
-			width: 40%;
-			/* height: 50%; */
-			margin-left: auto;
-			text-overflow: ellipsis;
-			margin-right: auto;
-		}
-		th, td
-		{
-			padding: 15px;
-			text-align: left;
 		}
 		</style>
 	</head>
